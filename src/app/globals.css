@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #f4f7f6;
+  color: #0f172a;
+  font-family: "Source Sans 3", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-base font-semibold transition-colors;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+    @apply disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-hover;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-secondary-foreground hover:bg-muted;
+  }
+
+  .btn-outline {
+    @apply btn border border-border bg-transparent text-foreground hover:bg-muted;
+  }
+
+  .btn-ghost {
+    @apply btn text-arc-muted hover:bg-muted hover:text-arc-ink;
+  }
+
+  .btn-yes {
+    @apply btn border border-arc-yes/40 bg-[#ecfdf5] font-semibold text-arc-yes hover:bg-[#d1fae5];
+  }
+
+  .btn-no {
+    @apply btn border border-arc-no/40 bg-[#fef2f2] font-semibold text-arc-no hover:bg-[#fee2e2];
+  }
+
+  .card {
+    @apply rounded-xl border border-arc-border bg-white shadow-card;
+  }
+
+  .card-hover {
+    @apply transition-all duration-150 hover:border-arc-border/80 hover:shadow-sm;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-md border border-arc-border bg-arc-elevated px-2 py-0.5 text-xs font-medium text-arc-muted;
+  }
+
+  .input {
+    @apply flex h-11 w-full rounded-lg border border-border bg-white px-3 py-2 text-base text-arc-ink outline-none transition-colors;
+    @apply placeholder:text-arc-muted;
+    @apply focus-visible:border-primary focus-visible:ring-1 focus-visible:ring-primary;
+  }
+
+  .panel {
+    @apply card;
+  }
+
+  .tbl {
+    @apply w-full text-base;
+  }
+
+  .tbl thead tr {
+    @apply border-b border-arc-border;
+  }
+
+  .tbl th {
+    @apply h-11 px-4 text-left align-middle font-semibold text-xs uppercase tracking-wider text-arc-muted;
+  }
+
+  .tbl td {
+    @apply p-4 align-middle text-arc-ink;
+  }
+
+  .tbl tbody tr {
+    @apply border-b border-arc-border/50 transition-colors last:border-b-0 hover:bg-arc-elevated/50;
+  }
+
+  .empty-state {
+    @apply flex flex-col items-center justify-center rounded-xl border border-dashed border-arc-border p-12 text-center;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5d1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+.modal-enter {
+  animation: modalIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.97) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

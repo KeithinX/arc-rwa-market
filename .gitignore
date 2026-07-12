@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env
+.env.local
+.deployer-key
+contracts/cache
+contracts/out
+contracts/broadcast
+*.log
+.vercel
+.DS_Store
+.git-broken-partial
